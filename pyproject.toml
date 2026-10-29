@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ethical-voice-clone-tts"
+version = "1.0.0"
+description = "Consent-verified voice cloning and TTS synthesis engine with inaudible provenance watermarking by Vecesta.co."
+readme = "README.md"
+authors = [
+  { name = "Vecesta.co", email = "vecesta.co@gmail.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+keywords = [
+  "voice-cloning",
+  "text-to-speech",
+  "ethical-ai",
+  "watermarking",
+  "provenance",
+  "consent-verification",
+  "vecesta"
+]
+dependencies = [
+  "numpy>=1.24.0",
+  "scipy>=1.10.0",
+  "pydantic>=2.0.0",
+  "colorama>=0.4.6",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.0.0",
+  "pytest-cov>=4.0.0",
+]
+
+[project.scripts]
+ethical-voice-clone-tts = "src.cli:main"
+evc = "src.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v"
